@@ -6,18 +6,18 @@ Architecture Overview
 
 The architecture includes:
 
-	•	A custom Virtual Private Cloud (VPC) with both public and private subnets across two availability zones.
-	•	EC2 instances in private subnets hosting the WordPress website.
-	•	Application Load Balancer (ALB) distributing traffic across EC2 instances.
-	•	NAT Gateway enabling internet access for instances in private subnets.
-	•	Auto Scaling Group (ASG) ensuring scalability and fault tolerance.
-	•	Route 53 for domain name registration and DNS configuration.
-	•	EFS for shared storage across EC2 instances.
-	•	Amazon RDS for database management.
-	•	Security Groups to control traffic to the EC2 instances.
-	•	SSL/TLS encryption using AWS Certificate Manager.
-	•	Simple Notification Service (SNS) for notifications about scaling events.
-	•	EC2 Instance Connect Endpoint Service for secure SSH access to EC2 instances within the private subnets.
+	- A custom Virtual Private Cloud (VPC) with both public and private subnets across two availability zones.
+	- EC2 instances in private subnets hosting the WordPress website.
+	- Application Load Balancer (ALB) distributing traffic across EC2 instances.
+	- NAT Gateway enabling internet access for instances in private subnets.
+	- Auto Scaling Group (ASG) ensuring scalability and fault tolerance.
+	- Route 53 for domain name registration and DNS configuration.
+	- EFS for shared storage across EC2 instances.
+	- Amazon RDS for database management.
+	- Security Groups to control traffic to the EC2 instances.
+	- SSL/TLS encryption using AWS Certificate Manager.
+	- Simple Notification Service (SNS) for notifications about scaling events.
+	- EC2 Instance Connect Endpoint Service for secure SSH access to EC2 instances within the private subnets.
 
 AWS Resources Used
 
