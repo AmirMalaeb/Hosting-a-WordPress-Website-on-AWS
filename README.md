@@ -48,24 +48,24 @@ The following steps were executed on the EC2 instances to install and configure 
     2.	Create the web root directory:
  
     sudo mkdir -p /var/www/html
-    ```
+
 
     3.	Mount EFS to the web root directory:
     
     sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport "$EFS_DNS_NAME":/ /var/www/html
-    ```
+
 
     4.	Install Apache and PHP:
 
     sudo yum install -y httpd
     sudo systemctl enable httpd
     sudo systemctl start httpd
-    ```
+    
 
     5.	Install PHP 8 and necessary extensions:
 
     sudo dnf install -y php php-cli php-cgi php-curl php-mbstring php-gd php-mysqlnd php-gettext php-json php-xml php-fpm php-intl php-zip php-bcmath php-ctype php-fileinfo php-openssl php-pdo php-tokenizer
-    ```
+
 
     6.	Install MySQL:
 
@@ -74,7 +74,7 @@ The following steps were executed on the EC2 instances to install and configure 
     sudo dnf install -y mysql-community-server
     sudo systemctl start mysqld
     sudo systemctl enable mysqld
-    ```
+
 
     7.	Set permissions:
 
@@ -83,7 +83,7 @@ The following steps were executed on the EC2 instances to install and configure 
     sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
     sudo find /var/www -type f -exec sudo chmod 0664 {} \;
     chown apache:apache -R /var/www/html
-    ```
+
 
     8.	Download and configure WordPress:
 
@@ -92,12 +92,11 @@ The following steps were executed on the EC2 instances to install and configure 
     sudo cp -r wordpress/* /var/www/html/
     sudo cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
     sudo vi /var/www/html/wp-config.php #use to edit the wep-config file with your database name, password, etc..
-    ```
+
 
     9.	Restart Apache:
 
     sudo service httpd restart
-
     ```
 
     ### Auto Scaling Group Launch Template Script
