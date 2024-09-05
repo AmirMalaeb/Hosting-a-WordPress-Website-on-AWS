@@ -43,23 +43,20 @@ The following steps were executed on the EC2 instances to install and configure 
     
     ```bash
     sudo yum update -y
-    ```
+
 
     2.	Create the web root directory:
-
-    ```bash
+ 
     sudo mkdir -p /var/www/html
     ```
 
     3.	Mount EFS to the web root directory:
-
-    ```bash
+    
     sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport "$EFS_DNS_NAME":/ /var/www/html
     ```
 
     4.	Install Apache and PHP:
 
-    ```bash
     sudo yum install -y httpd
     sudo systemctl enable httpd
     sudo systemctl start httpd
@@ -67,13 +64,11 @@ The following steps were executed on the EC2 instances to install and configure 
 
     5.	Install PHP 8 and necessary extensions:
 
-    ```bash
     sudo dnf install -y php php-cli php-cgi php-curl php-mbstring php-gd php-mysqlnd php-gettext php-json php-xml php-fpm php-intl php-zip php-bcmath php-ctype php-fileinfo php-openssl php-pdo php-tokenizer
     ```
 
     6.	Install MySQL:
 
-    ```bash
     sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
     sudo dnf install -y mysql80-community-release-el9-1.noarch.rpm
     sudo dnf install -y mysql-community-server
@@ -83,7 +78,6 @@ The following steps were executed on the EC2 instances to install and configure 
 
     7.	Set permissions:
 
-    ```bash
     sudo usermod -a -G apache ec2-user
     sudo chown -R ec2-user:apache /var/www
     sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
@@ -93,7 +87,6 @@ The following steps were executed on the EC2 instances to install and configure 
 
     8.	Download and configure WordPress:
 
-    ```bash
     wget https://wordpress.org/latest.tar.gz
     tar -xzf latest.tar.gz
     sudo cp -r wordpress/* /var/www/html/
@@ -103,8 +96,8 @@ The following steps were executed on the EC2 instances to install and configure 
 
     9.	Restart Apache:
 
-    ```bash
     sudo service httpd restart
+
     ```
 
     ### Auto Scaling Group Launch Template Script
