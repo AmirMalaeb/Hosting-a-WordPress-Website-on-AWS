@@ -4,6 +4,8 @@ This project demonstrates the deployment of a WordPress website on AWS, using a 
 
 Architecture Overview
 
+![Reference Architecture Diagram](./WordPress%20on%20AWS-Amir.jpeg)
+
 The architecture includes:
 
 	- A custom Virtual Private Cloud (VPC) with both public and private subnets across two availability zones.
